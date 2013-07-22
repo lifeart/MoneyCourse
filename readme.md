@@ -1,40 +1,36 @@
-Демо:
+##Демо:
 
-https://dream-notes.ru/kurs/fatfree
+https://dream-notes.ru/kurs/fatfree 
 http://dream-notes.ru/kurs/fatfree
 
-MoneyCourse использует фреймворк FatFree:
+## MoneyCourse использует фреймворк FatFree:
 
 [![Fat-Free Framework](ui/images/logo.png)](http://fatfree.sf.net/)
 
-**A powerful yet easy-to-use PHP micro-framework designed to help you build dynamic and robust Web applications - fast!**
 
-[![Flattr this project](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=phpfatfree&url=https://github.com/bcosca/fatfree)
-
-
-Файлы проекта MoneyCourse:
+## Файлы проекта MoneyCourse:
 
 
-** Стили
+### Стили
 /ui/css/main.css
 
-** Скрипты
+### Скрипты
 /ui/js/jquery.min.js
 /ui/js/kurs.js
 
-** Шаблоны
+### Шаблоны
 /ui/main.html
 
-** Модифицированные настройки Apache
+### Модифицированные настройки Apache
 /.htaccess
 
-** Модифицированные PHP файлы
+### Модифицированные PHP файлы
 /index.php
 
-** Дамп таблицы с данными и команды на создание таблицы
+### Дамп таблицы с данными и команды на создание таблицы
 /fastvps.sql.zip
 /table.sql
 
-** Всё настраивается через index.php
+### Всё настраивается через index.php
 
 Остальные файлы принадлежат фреймворку fatfree;
