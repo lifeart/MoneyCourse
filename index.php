@@ -108,7 +108,7 @@ $moneyCourse = new MoneyCourse();
 $f3->route('GET /',
     function() {
 		$template=new Template;
-        echo $template->render('main.html');
+        echo $template->render('ui/main.html');
     }
 );
 
