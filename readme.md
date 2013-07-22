@@ -1,36 +1,54 @@
-##Демо:
+MoneyCourse - отображение курса валют
+=======
 
-https://dream-notes.ru/kurs/fatfree 
-http://dream-notes.ru/kurs/fatfree
-
-## MoneyCourse использует фреймворк FatFree:
-
-[![Fat-Free Framework](ui/images/logo.png)](http://fatfree.sf.net/)
+Приложение предназначено для отображения курса валют.
 
 
-## Файлы проекта MoneyCourse:
+Технические требования для этого приложения:
+- Язык реализации - PHP 5+
+- Используемая СУБД - MySQL/PostgreSQL
+- Использование PHP фреймворка (допускается собственная разработка) - обязательно
+- Использование AJAX - обязательно для всех запросов.
+- Кэширование данных приложения (курсы валют) - обязательно (хранилище - на усмотрение автора)
+- Наличие комментариев - обязательно (в разумных пределах)
+- Соблюдения выбранного стандарта кодирования (указать в пояснении) - обязательно
+- Наличие тестов - опциональное
+- Предоставление ссылки на уже работающий и установленный проект - опционально
+- Предоставление инструкции по развертыванию проекта - опционально
+
+Демо:
+
+- https://dream-notes.ru/kurs/fatfree 
+- http://dream-notes.ru/kurs/fatfree
+
+MoneyCourse использует Fat-Free Framework (http://fatfree.sf.net/)
+
+
+
+
+##Файлы проекта MoneyCourse:
 
 
 ### Стили
-/ui/css/main.css
+- /ui/css/main.css
 
 ### Скрипты
-/ui/js/jquery.min.js
-/ui/js/kurs.js
+- /ui/js/jquery.min.js
+- /ui/js/kurs.js
 
 ### Шаблоны
-/ui/main.html
+- /ui/main.html
 
 ### Модифицированные настройки Apache
-/.htaccess
+- /.htaccess
 
 ### Модифицированные PHP файлы
-/index.php
+- /index.php
 
 ### Дамп таблицы с данными и команды на создание таблицы
-/fastvps.sql.zip
-/table.sql
+- /fastvps.sql.zip
+- /table.sql
 
 ### Всё настраивается через index.php
 
-Остальные файлы принадлежат фреймворку fatfree;
+Остальные файлы принадлежат фреймворку fatfree
