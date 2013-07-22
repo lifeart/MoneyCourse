@@ -1,0 +1,14 @@
+CREATE DATABASE `fastvps` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+ 
+CREATE TABLE  `fastvps`.`coins` (
+
+`id` INT NOT NULL AUTO_INCREMENT,
+`name` VARCHAR( 120 ) NOT NULL ,
+`keycode` VARCHAR( 3 ) NOT NULL ,
+`nominal` INT NOT NULL ,
+`value` DECIMAL( 6, 4 ) NOT NULL ,
+`updtime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+UNIQUE (
+`id`
+)
+) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_general_ci

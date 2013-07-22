@@ -1,0 +1,114 @@
+			body h1 {
+			
+				float:center;
+				color:#666;
+				text-align: center;
+				padding-left:10px;
+				
+			}
+			
+			#main {
+			
+				margin-left: 25%;
+				
+			}
+			
+			
+			#data {
+				
+				margin: 0 auto;
+				
+			}
+			
+			.money {
+			
+				float:left;
+				clear:left;
+				margin-bottom:1px;
+				
+			}
+			
+			.money_sub {
+			
+				float:left;
+				height:20px;
+				
+			}
+			
+			.name {
+			
+				width:120px;
+				background-color:#F3F3F3;
+				padding-left:4px;
+				border-bottom-left-radius:3px;
+				border-top-left-radius:3px;
+				
+			}
+			
+			.value {
+			
+				padding-left:4px;
+				width:80px;
+				background-color:#CBDCE6;
+				
+			}
+			
+			#add {
+			
+				cursor:pointer;
+				float:lfet;
+				clear:left;
+				width:466px;
+				height:20px;
+				background-color:#000;
+				color:#fff;
+				padding: 3px;
+				margin-bottom: 4px;
+				
+			}
+			
+			#add:hover {
+			
+				background-color:#444;
+			
+			}
+			
+
+			
+			.keycode {
+			
+				width: 40px;
+				float: left;
+				text-align: center;
+				background-color: #FDADAD;
+				padding-right: 2px;
+				
+			}
+			
+			.updtime {
+			
+				width: 140px;
+				text-align: center;
+				background-color: #E9C8F0;
+			
+			}
+			
+			.refresh {
+			
+				cursor:pointer;
+				padding-left:4px;
+				width:78px;
+				background-color:#D9E778;
+				border-top-right-radius:3px;
+				border-bottom-right-radius:3px;
+			}
+			
+			.delete {
+				margin-top: 9px;
+				margin-left: 3px;
+				width: 10px;
+				height: 2px;
+				background-color: red;
+				float: left;
+				cursor:pointer;
+			}
