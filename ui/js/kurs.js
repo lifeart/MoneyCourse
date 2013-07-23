@@ -82,6 +82,7 @@ $(document).ready(function()  {
 						
 						money_div.children(".value").text(nominalRenderer(data.value[0],data.nominal[0]));
 						money_div.children(".updtime").text(data.updtime);
+						money_div.children(".value").show("slow");
 						money_div.children(".updtime").show("slow");
 						
 						// if (data.nominal[0] == 1) {

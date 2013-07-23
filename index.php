@@ -47,14 +47,20 @@ class MoneyCourse {
 				
 				//Result_For_DB
 				$rfdb = json_decode($result, true);
-				$value = str_replace(',','.',$rfdb['value'][0]);
+				
+				$value_ = str_replace(',','.',$rfdb['value'][0]);
+				$value = $db->quote($value_ );
 
-				$nominal = $rfdb['nominal'][0];
+				$nominal_ = $rfdb['nominal'][0];
+				$nominal = $db->quote($nominal_);
+				
+				
+				// $keycode_ = $db->quote($f3->scrub($_REQUEST['name']);
 				
 				// работаем с транзакциями фреймворка, поэтому 3 запроса
 				$db->begin();
-				$db->exec("UPDATE coins SET value='$value' WHERE keycode='$keycode'");
-				$db->exec("UPDATE coins SET nominal='$nominal' WHERE keycode='$keycode'");
+				$db->exec("UPDATE coins SET value={$value} WHERE keycode='$keycode'");
+				$db->exec("UPDATE coins SET nominal={$nominal} WHERE keycode='$keycode}'");
 				$db->exec("UPDATE coins SET updtime='$upd_time' WHERE keycode='$keycode'");
 				$db->commit();
 
@@ -62,8 +68,8 @@ class MoneyCourse {
 					
 					$responce = array();
 					$responce['keycode'] = $keycode;
-					$responce['nominal'] = $nominal;
-					$responce['value'] = $value;
+					$responce['nominal'] = $nominal_;
+					$responce['value'] = $value_;
 					$responce['updtime'] = $upd_time;
 					
 					return $responce;
@@ -114,8 +120,11 @@ $f3->route('GET /add',
 		
 		// добавить фильтрацию!
 		
-		$name = $db->quote($_REQUEST['name']);
-		$keycode = $db->quote($_REQUEST['keycode']);
+		$name_ = $f3->scrub($_REQUEST['name']);
+		$keycode_ = strtoupper($f3->scrub($_REQUEST['keycode']));
+		
+		$name = $db->quote($name_);
+		$keycode = $db->quote($keycode_);
 
 		$result = array();
 		
@@ -126,7 +135,7 @@ $f3->route('GET /add',
 			// Очищаем общий кэш валютных данных
 			$f3->clear('stuff');
 			
-			$data = $moneyCourse->updateDataByName(strtoupper($_REQUEST['keycode']),'array');
+			$data = $moneyCourse->updateDataByName($keycode_,'array');
 		
 			$result['status']='success';
 			$result['name']=$_REQUEST['name'];
@@ -148,7 +157,7 @@ $f3->route('GET /codes',
 		global $f3;
 		global $moneyCourse;
 	
-		$keycode = strtoupper($_REQUEST['keycode']);
+		$keycode = strtoupper($f3->scrub($_REQUEST['keycode']));
 		
 		$f3->clear('stuff');
 		
@@ -163,8 +172,11 @@ $f3->route('GET /delete',
 		global $db;
 		global $f3;
 	
-		$name = $db->quote($_REQUEST['name']);
-		$keycode = $db->quote(strtoupper($_REQUEST['keycode']));
+		$name_ = $f3->scrub($_REQUEST['name']);
+		$keycode_ = strtoupper($f3->scrub($_REQUEST['keycode']));
+		
+		$name = $db->quote($name_);
+		$keycode = $db->quote($keycode_);
 		
 		$db->exec("DELETE FROM coins WHERE name={$name} and keycode={$keycode}");
 	
