@@ -29,12 +29,16 @@ MoneyCourse использует Fat-Free Framework (http://fatfree.sf.net/)
 ##Файлы проекта MoneyCourse:
 
 
+### Рабочая кодировка
+- utf-8
+
 ### Стили
 - /ui/css/main.css
 
 ### Скрипты
 - /ui/js/jquery.min.js
 - /ui/js/kurs.js
+- /jquery.tmpl.min.js
 
 ### Шаблоны
 - /ui/main.html
@@ -49,7 +53,8 @@ MoneyCourse использует Fat-Free Framework (http://fatfree.sf.net/)
 - /fastvps.sql.zip
 - /table.sql
 
-### Всё настраивается через index.php
+### Настройки БД/Memcached лежат тут
+- /settings.php
 
 Остальные файлы принадлежат фреймворку fatfree
 
