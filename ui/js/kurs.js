@@ -42,7 +42,7 @@ $(document).ready(function()  {
 					
 						data.items.forEach(function(element) {
 						
-							var divstring = '<div class="money" name="'+element.keycode+'"><div class="money_sub name">'+element.name+'</div><div class="money_sub keycode">'+element.keycode+'</div><div class="money_sub value">'+nominalRenderer(element.value,element.nominal)+'</div><div class="money_sub updtime">'+element.updtime+'</div><div class="money_sub refresh">обновить</div><div class="money_suv delete"></div></div>';
+							var divstring = '<div class="money" name="'+element.keycode+'"><div class="money_sub name">'+element.name+'</div><div class="money_sub keycode">'+element.keycode+'</div><div class="money_sub value">'+nominalRenderer(element.value,element.nominal)+'</div><div class="money_sub updtime">'+element.updtime+'</div><div class="money_sub refresh">обновить</div><div class="money_sub delete">удалить</div></div>';
 					
 							$("#data").append(divstring);
 						
@@ -64,9 +64,10 @@ $(document).ready(function()  {
 				var money_div = refr_div.parent(".money");
 				
 				money_div.children(".value").text('обновляю..');
-				money_div.children(".updtime").text('получаю время..');
+				// money_div.children(".updtime").text('получаю время..');
 				
 				money_div.children(".delete").hide();
+				money_div.children(".updtime").hide();
 				
 				var code = money_div.attr("name").toString();
 				
@@ -80,6 +81,7 @@ $(document).ready(function()  {
 						
 						money_div.children(".value").text(nominalRenderer(data.value[0],data.nominal[0]));
 						money_div.children(".updtime").text(data.updtime);
+						money_div.children(".updtime").show("slow");
 						
 						// if (data.nominal[0] == 1) {
 						// money_div.children(".value").text(data.value[0]);
@@ -150,7 +152,7 @@ $(document).ready(function()  {
 						
 								if (!data.updtime) data.updtime = 'нет данных';
 						
-								var divstring = '<div class="money" name="'+keycode+'"><div class="money_sub name">'+name+'</div><div class="money_sub keycode">'+keycode+'</div><div class="money_sub value">'+nominalRenderer(data.value,data.nominal)+'</div><div class="money_sub updtime">'+data.updtime+'</div><div class="money_sub refresh">обновить</div><div class="money_suv delete"></div></div>';
+								var divstring = '<div class="money" name="'+keycode+'"><div class="money_sub name">'+name+'</div><div class="money_sub keycode">'+keycode+'</div><div class="money_sub value">'+nominalRenderer(data.value,data.nominal)+'</div><div class="money_sub updtime">'+data.updtime+'</div><div class="money_sub refresh">обновить</div><div class="money_sub delete">удалить</div></div>';
 						
 								$("#data").append(divstring);
 							
