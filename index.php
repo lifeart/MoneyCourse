@@ -76,6 +76,18 @@ class MoneyCourse {
 					
 				} else return $result;
 				
+			} else {
+			
+				if ($output != 'json') {
+					
+					$responce = array();
+					$responce['status'] = 'nodata';
+					
+					return $responce;
+			
+				}		
+			
+			
 			}
 	
 		}
@@ -83,7 +95,7 @@ class MoneyCourse {
 	}
 	
 	
-	function file_get_contents_curl($url='http://www.cbr.ru/scripts/XML_daily.asp') {
+	private function file_get_contents_curl($url='http://www.cbr.ru/scripts/XML_daily.asp') {
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);

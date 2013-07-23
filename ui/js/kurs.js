@@ -89,7 +89,9 @@ $(document).ready(function()  {
 						// money_div.children(".value").text(data.value[0]);
 						// } else money_div.children(".value").text(data.value[0] +' с номиналом ' + data.nominal[0]);
 					
-					} else {
+					}
+
+					else {
 					
 						refr_div.html("ошибка").show("slow");
 						money_div.children(".value").hide("slow");
