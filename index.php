@@ -2,14 +2,7 @@
 
 $f3=require('lib/base.php');
 
-$db=new DB\SQL(
-    'mysql:host=localhost;port=3306;dbname=fastvps',
-    'fastvps',
-    'W8bP7NS2Xbj7X338'
-);
-
-$f3->set('CACHE',TRUE);
-$f3->set('CACHE','memcached=localhost:11211');
+include_once("settings.php");
 
 // внимание! использую 2 глобальные переменные!
 // работа с базой данных ведётся без ID
