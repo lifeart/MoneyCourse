@@ -133,9 +133,11 @@ $f3->route('GET /add',
 			// Очищаем общий кэш валютных данных
 			$f3->clear('stuff');
 			
-			$data = $moneyCourse->updateDataByName($_REQUEST['keycode'],'array');
+			$data = $moneyCourse->updateDataByName(strtoupper($_REQUEST['keycode']),'array');
 		
 			$result['status']='success';
+			$result['name']=$_REQUEST['name'];
+			$result['keycode']=$_REQUEST['keycode'];
 			$result['value']=$data['value'];
 			$result['nominal']=$data['nominal'];
 			$result['updtime']=$data['updtime'];

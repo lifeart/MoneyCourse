@@ -42,9 +42,10 @@ $(document).ready(function()  {
 					
 						data.items.forEach(function(element) {
 						
-							var divstring = '<div class="money" name="'+element.keycode+'"><div class="money_sub name">'+element.name+'</div><div class="money_sub keycode">'+element.keycode+'</div><div class="money_sub value">'+nominalRenderer(element.value,element.nominal)+'</div><div class="money_sub updtime">'+element.updtime+'</div><div class="money_sub refresh">обновить</div><div class="money_sub delete">удалить</div></div>';
-					
-							$("#data").append(divstring);
+							element.value = nominalRenderer(element.value,element.nominal);
+						
+							$( "#courseTemplate" ).tmpl(element).appendTo("#data");
+
 						
 						});
 					
@@ -143,19 +144,16 @@ $(document).ready(function()  {
 					
 					if (name != null && keycode != null ) {
 					
-						// var name_encoded = encodeURIComponent(name);
-						// var keycode_encoded = encodeURIComponent(keycode);
-					
 						$.get('add',{name:name,keycode:keycode},function(data) {
 							
 							if (data.status === 'success') {
 						
 								if (!data.updtime) data.updtime = 'нет данных';
+								
+								data.value = nominalRenderer(data.value,data.nominal);
 						
-								var divstring = '<div class="money" name="'+keycode+'"><div class="money_sub name">'+name+'</div><div class="money_sub keycode">'+keycode+'</div><div class="money_sub value">'+nominalRenderer(data.value,data.nominal)+'</div><div class="money_sub updtime">'+data.updtime+'</div><div class="money_sub refresh">обновить</div><div class="money_sub delete">удалить</div></div>';
+								$( "#courseTemplate" ).tmpl(data).appendTo("#data");
 						
-								$("#data").append(divstring);
-							
 							}
 							
 							if (data.status === 'duplicate') {
