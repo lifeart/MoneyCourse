@@ -125,7 +125,7 @@ $f3->route('GET /add',
 
 		$result = array();
 		
-		if (strlen($keycode_)!=3 || !preg_match('/^[A-Z]$/', $keycode_)) {
+		if (!preg_match('/^[A-Z]{3}$/', $keycode_)) {
 		
 			$result['status']='no_keycode';
 			echo json_encode($result);
