@@ -122,11 +122,27 @@ $f3->route('GET /add',
 		
 		$name_ = $f3->scrub($_REQUEST['name']);
 		$keycode_ = strtoupper($f3->scrub($_REQUEST['keycode']));
+
+		$result = array();
+		
+		if (strlen($keycode_)!=3 || !preg_match('/^[A-Z]$/', $keycode_)) {
+		
+			$result['status']='no_keycode';
+			echo json_encode($result);
+			die();
+			
+		}
+		
+		if (empty($name_)) {
+		
+			$result['status']='no_name';
+			echo json_encode($result);
+			die();
+		}
 		
 		$name = $db->quote($name_);
 		$keycode = $db->quote($keycode_);
 
-		$result = array();
 		
 		if (!$db->exec("SELECT * FROM coins WHERE name={$name} and keycode={$keycode}")) {
 		
