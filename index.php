@@ -76,22 +76,10 @@ class MoneyCourse {
 					
 				} else return $result;
 				
-			} else {
-			
-				if ($output != 'json') {
-					
-					$responce = array();
-					$responce['status'] = 'nodata';
-					
-					return $responce;
-			
-				}		
-			
-			
 			}
 	
 		}
-
+		
 	}
 	
 	
@@ -215,8 +203,8 @@ $f3->route('GET /stuff',
 		if (!$f3->exists('stuff')) {
 		
 			$stuff_db = $db->exec('SELECT * FROM coins');
-
-			if ($stuff_db && is_array($stuff_db)) {
+			
+			if (is_array($stuff_db)) {
 		
 				foreach ($stuff_db as $key=>$data) {
 				
@@ -225,6 +213,7 @@ $f3->route('GET /stuff',
 						// не самая логичная работа с XML документом, 
 						// но, кажется, менее ресурсоёмкая чем преборазование всего документа в массив
 						$stuff_db[$key] = $moneyCourse->updateDataByName($data['keycode'],'array');
+						$stuff_db[$key]['name'] = $data['name'];
 					
 					}
 				
