@@ -51,16 +51,13 @@ class MoneyCourse {
 				$value_ = str_replace(',','.',$rfdb['value'][0]);
 				$value = $db->quote($value_ );
 
-				$nominal_ = $rfdb['nominal'][0];
-				$nominal = $db->quote($nominal_);
 				
-				
-				// $keycode_ = $db->quote($f3->scrub($_REQUEST['name']);
+				$nominal = (int)$rfdb['nominal'][0];
 				
 				// работаем с транзакциями фреймворка, поэтому 3 запроса
 				$db->begin();
 				$db->exec("UPDATE coins SET value={$value} WHERE keycode='$keycode'");
-				$db->exec("UPDATE coins SET nominal={$nominal} WHERE keycode='$keycode}'");
+				$db->exec("UPDATE coins SET nominal='$nominal' WHERE keycode='$keycode'");
 				$db->exec("UPDATE coins SET updtime='$upd_time' WHERE keycode='$keycode'");
 				$db->commit();
 
@@ -68,7 +65,7 @@ class MoneyCourse {
 					
 					$responce = array();
 					$responce['keycode'] = $keycode;
-					$responce['nominal'] = $nominal_;
+					$responce['nominal'] = $nominal;
 					$responce['value'] = $value_;
 					$responce['updtime'] = $upd_time;
 					
@@ -148,9 +145,6 @@ $f3->route('GET /add',
 		
 			$db->exec("INSERT INTO coins (name,keycode) VALUES ({$name},{$keycode})");
 			
-			// Очищаем общий кэш валютных данных
-			$f3->clear('stuff');
-			
 			$data = $moneyCourse->updateDataByName($keycode_,'array');
 		
 			$result['status']='success';
@@ -159,6 +153,9 @@ $f3->route('GET /add',
 			$result['value']=$data['value'];
 			$result['nominal']=$data['nominal'];
 			$result['updtime']=$data['updtime'];
+		
+			// Очищаем общий кэш валютных данных
+			$f3->clear('stuff');
 		
 		} else $result['status']='duplicate';
 
